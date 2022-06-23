@@ -16,29 +16,56 @@ body {
     align-items: center;
 }
 
-.editModal {
-    color: rgb(25,25,25);
-    background-color: antiquewhite;
-    height: fit-content;
-    width: 25vw;
-    text-align: center;
-    padding: 20px;
-    border-radius: 15px;
+.sidebar {
+    width: 10vw;
+    height: 50%;
+    z-index: 99;
     position: absolute;
-    z-index: 1;
+    top: 0;
+    left: -10vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+    background-color: azure;
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    justify-content: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    -moz-transition:all 200ms ease-in;
+    -webkit-transition:all 200ms ease-in;
+    -o-transition:all 200ms ease-in;
+    transition:all 200ms ease-in;
 }
 
-.blurModal {
-    position: relative;
-    background-color: dimgray;
-    opacity: .5;
-    background-size: cover;
+
+.sidebar a {
+    text-decoration: none;
+    color: rgb(102, 102, 102);
+    transition: .2s;
+}
+
+
+.sidebar ul li {
+    margin: 25px;
+}
+
+.toggleButton {
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 100%;
-    z-index: -1;
+    position: absolute;
+    padding: 20px; 
+    font-size: 15px;
+    background-color: azure;
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(102, 102, 102);
+    border: 1px solid transparent;
+    border-radius: 50px;
+    margin-top: 2vh;
+    margin-left: 4vw;
 }
+
+
 
 main {
     z-index: -2;
@@ -51,6 +78,7 @@ main {
     border-top-right-radius: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -58,7 +86,7 @@ main {
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-content: flex-end;
+    align-items: center;
     justify-content: space-evenly;
     text-align: center;
 }
@@ -78,13 +106,13 @@ main {
     background-color: lightgreen;
     box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 30px;
-    margin-left: 2vw;
+    width: 80%;
 
 }
 
 ul li{
     margin-top: 10px;
-
+    list-style-type: none;
 }
 
 .schedtasks {
@@ -129,4 +157,12 @@ ul li{
 .subsec {
     height: 100px;
     width: 100px;
+}
+
+.toggleButton {
+    display: flex;
+}
+
+.dark {
+
 }

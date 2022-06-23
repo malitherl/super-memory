@@ -5,15 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Bullet Journal</title>
-    <link rel="stylesheet" href="/public/css/write.css">
+    <link id="theme" rel="stylesheet" href="/public/css/light-write.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="javascript:void(0)" onclick="hideBar()"><i class="fa-solid fa-arrow-left"></i></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Super Memory</a></li>
+            <li><a href="docs.html">How to Use</a></li>
+            <li><a href="#" id="theme-toggle"><i class="fa-solid fa-moon"></i></a></li>
+        </ul>
+    </div>
+    <button class="toggleButton" onclick="toggleBar()"><i class="fa-solid fa-arrow-right"></i></button>
     <main>
        <section class="proggers">
             <h2>Progress</h2>
+            <!--Add more copy here-->
             <div class="progress">
                 <ul>
                     <li>[Poggers]</li>
@@ -25,6 +38,7 @@
        </section>
        <section class="schedtasks">
             <h2>Schedule & Tasks</h2>
+            <!--Add more copy here-->
             <section>
                 <div class="tasks">
                     <h3>Top Tasks</h3>
@@ -69,9 +83,8 @@
                         <div class="subsec">
 
                         </div>
-                    </section>
-                 
-</div>   
+                    </section> 
+                </div>   
             </section>
           
        </section>
@@ -79,6 +92,54 @@
 </body>
 <script>
    
+    function toggleBar() {
+        document.querySelector('.sidebar').style.display = 'block';
+        document.querySelector('.sidebar').style.left = '0';
+        
+        console.log(document.getElementsByClassName('sidebar'))
+
+    }
+
+
+
+   function hideBar(){
+        document.querySelector('.sidebar').style.left = '-10vw';
+        document.querySelectorAll('.sidebar').forEach(element => element.style.display = "none");
+
+   }
+
+   function darkMode(){
+        let elements = ['body', 'main', '.toggleButton', '.sidebar']
+
+        for(let i=0; i < elements.length; i++){
+            document.querySelector(elements[i]).style.backgroundColor = 'rgb(15,15,15)';
+            document.querySelector(elements[i]).style.color = 'azure';
+        }
+        document.querySelector('.progress').backgroundColor = 'rgb(94, 151, 94)';
+        document.querySelector('.schedule').backgroundColor = 'rgb(197, 150, 158)';
+        document.querySelector('.tasks').backgroundColor = 'rgb(106, 160, 194)';
+
+   }
+
+   document.addEventListener('DOMContentLoaded', ()=> {
+
+    const stylesheet = document.getElementById('theme');
+    const themeToggle = document.getElementById('theme-toggle'); 
+    themeToggle.addEventListener('click', ()=> {
+        if(theme.href.includes('light')){
+            stylesheet.href = '/public/css/dark-write.css';
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        } else {
+            stylesheet.href = '/public/css/light-write.css';
+            themeToggle.innerHTML = '<i class="fa-solid fa-moon">';
+        }
+    })
+
+
+
+   })
+
+
 
     </script>
 </html>
